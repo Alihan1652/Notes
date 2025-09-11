@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.example.notes.databinding.ItemOnBoardBinding
+import com.bumptech.glide.Glide
+
 
 class OnBoardAdapter(
     private val onBoardList: List<OnBoardModel>,
@@ -32,8 +33,13 @@ class OnBoardAdapter(
     inner class OnBoardViewHolder(private val binding: ItemOnBoardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+
         fun bind(onBoardModel: OnBoardModel) {
-            binding.img.load(onBoardModel.gifRes)
+
+            Glide.with(binding.img.context)
+                .asGif()
+                .load(onBoardModel.gifRes)
+                .into(binding.img)
 
             binding.tvTitle.text = onBoardModel.title
             binding.tvDesc.text = onBoardModel.desc
@@ -49,5 +55,6 @@ class OnBoardAdapter(
                 binding.btnStart.setOnClickListener { onStart() }
             }
         }
+
     }
 }
