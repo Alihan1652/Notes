@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -57,5 +59,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("me.relex:circleindicator:2.1.6")
     implementation("com.airbnb.android:lottie:6.0.0")
+    implementation("androidx.viewpager2:viewpager2:1.1.0-beta01")
+
 }
 

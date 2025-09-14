@@ -70,6 +70,7 @@
     <com.google.android.material.button.MaterialButton
         android:textStyle="bold"
         android:textSize="20sp"
+        android:textColor="@color/white"
         android:text="Начать"
         android:backgroundTint="@color/orange"
         app:cornerRadius="12dp"

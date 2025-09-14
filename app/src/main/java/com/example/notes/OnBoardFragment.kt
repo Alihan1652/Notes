@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.notes.databinding.FragmentOnBoardBinding
+import com.example.notes.utils.Pref
 
 class OnBoardFragment : Fragment() {
 
@@ -23,6 +24,7 @@ class OnBoardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         adapter = OnBoardAdapter(loadOnBoardData(), ::onStartBoard, ::onSkipBoard)
         binding.vpOnBoard.adapter = adapter
 
@@ -34,6 +36,9 @@ class OnBoardFragment : Fragment() {
     }
 
     private fun onStartBoard() {
+        val pref = Pref(requireContext())
+        pref.setOnBoardShown()
+
         findNavController().navigate(
             R.id.mainFragment,
             null,

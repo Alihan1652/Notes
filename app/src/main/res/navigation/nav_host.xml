@@ -5,14 +5,37 @@
     android:id="@+id/nav_host"
     app:startDestination="@id/onBoardFragment">
 
+    <!-- Главный экран со списком заметок -->
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.notes.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+
+        <!-- переход с главного экрана на AddNoteFragment -->
+        <action
+            android:id="@+id/action_mainFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
+
+    <!-- OnBoard экран -->
     <fragment
         android:id="@+id/onBoardFragment"
         android:name="com.example.notes.OnBoardFragment"
         android:label="fragment_on_board"
-        tools:layout="@layout/fragment_on_board" />
+        tools:layout="@layout/fragment_on_board" >
+
+        <action
+            android:id="@+id/action_onBoardFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/onBoardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Новый фрагмент для добавления заметки -->
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.example.notes.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" />
 </navigation>
