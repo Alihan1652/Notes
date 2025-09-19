@@ -1,24 +1,30 @@
-package com.example.notes
+package com.example.notes.on_board
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.example.notes.R
+import com.example.notes.data.local.pref.Pref
+import com.example.notes.data.local.models.OnBoardModel
 import com.example.notes.databinding.FragmentOnBoardBinding
-import com.example.notes.utils.Pref
+import com.example.notes.on_board.adapter.OnBoardAdapter
 
 class OnBoardFragment : Fragment() {
 
     private lateinit var binding: FragmentOnBoardBinding
     private lateinit var adapter: OnBoardAdapter
+    private lateinit var pref: Pref
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentOnBoardBinding.inflate(inflater, container, false)
+        pref = Pref(requireContext())
         return binding.root
     }
 
@@ -36,13 +42,14 @@ class OnBoardFragment : Fragment() {
     }
 
     private fun onStartBoard() {
+        pref.saveUserSeen(true)
         val pref = Pref(requireContext())
-        pref.setOnBoardShown()
+        pref.getUserSeen()
 
         findNavController().navigate(
             R.id.mainFragment,
             null,
-            androidx.navigation.NavOptions.Builder()
+            NavOptions.Builder()
                 .setPopUpTo(R.id.onBoardFragment, true)
                 .build()
         )

@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs")
     id("org.jetbrains.kotlin.plugin.parcelize")
+    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -61,5 +63,9 @@ dependencies {
     implementation("com.airbnb.android:lottie:6.0.0")
     implementation("androidx.viewpager2:viewpager2:1.1.0-beta01")
 
-}
 
+    val roomVersion = "2.8.0"
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
+}
