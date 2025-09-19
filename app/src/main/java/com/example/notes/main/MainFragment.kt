@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
         initView()
         getData()
         setupListener()
-        setupAdapterListeners() // ⚡️ Добавь этот вызов
+        setupAdapterListeners() // Добавь этот вызов
     }
 
     private fun initView() {
