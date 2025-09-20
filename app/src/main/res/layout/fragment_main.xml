@@ -18,7 +18,6 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="40dp">
 
-            <!-- Кнопка слева (меню) -->
             <ImageButton
                 android:id="@+id/btnMenu"
                 android:layout_width="wrap_content"
@@ -26,7 +25,6 @@
                 android:src="@drawable/menu"
                 android:background="@android:color/transparent" />
 
-            <!-- Заголовок по центру -->
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
@@ -39,7 +37,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <!-- Кнопка справа (вид/сетка) -->
             <ImageButton
                 android:id="@+id/btnGrid"
                 android:layout_width="wrap_content"
@@ -49,7 +46,6 @@
                 android:background="@android:color/transparent" />
         </androidx.appcompat.widget.Toolbar>
 
-        <!-- Поисковик -->
         <EditText
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
@@ -62,7 +58,6 @@
             android:textColor="@android:color/white"
             android:textColorHint="@color/white" />
 
-    <!-- Список заметок -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNotes"
         tools:listitem="@layout/item_task"
