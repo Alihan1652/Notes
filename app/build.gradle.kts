@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application) // Плагин Android Application (собираем APK)
+    alias(libs.plugins.android.application) // Плагин Android Application (собираем APK):
     alias(libs.plugins.kotlin.android) // Поддержка Kotlin для Android
     id("androidx.navigation.safeargs") // SafeArgs — безопасная передача аргументов между фрагментами
     id("org.jetbrains.kotlin.plugin.parcelize") // @Parcelize для удобной сериализации объектов
