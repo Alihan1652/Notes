@@ -2,6 +2,7 @@ package com.example.notes.data.local.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.serialization.Serializable
 
 @Entity(tableName = "tasks_list")
 data class TaskModel(
@@ -9,5 +10,7 @@ data class TaskModel(
     val id: Int? = null,
     val title: String,
     val desc: String,
-    val createdAt: Long = System.currentTimeMillis() // время создания
-)
+    val createdAt: Long = System.currentTimeMillis(),
+    val color: String = "#FF9800",
+    val imageUri: String? = null
+) : java.io.Serializable

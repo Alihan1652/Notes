@@ -66,6 +66,7 @@ dependencies {
 
     // Glide — загрузка и кеширование изображений
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
 
     // CircleIndicator — индикатор для ViewPager
     implementation("me.relex:circleindicator:2.1.6")
@@ -76,6 +77,31 @@ dependencies {
     // ViewPager2 — пейджинг по экранам
     implementation("androidx.viewpager2:viewpager2:1.1.0-beta01")
 
+    // Room, Coroutines
+    implementation("androidx.room:room-runtime:2.5.1")
+    implementation("androidx.room:room-ktx:2.5.1")
+
+    // lifecycle / ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+
+
+    // RecyclerView / CardView
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("androidx.cardview:cardview:1.0.0")
+
+
+    // Navigation (если используешь)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+
+
+    // Coil (для загрузки фото)
+    implementation("io.coil-kt:coil:2.4.0")
+
+
+    // Kotlin coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
     // Room (база данных)
     val roomVersion = "2.8.0"
 

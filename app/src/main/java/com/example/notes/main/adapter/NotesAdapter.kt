@@ -1,16 +1,17 @@
 package com.example.notes.main.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.notes.data.local.models.TaskModel
 import com.example.notes.databinding.ItemTaskBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
+class NotesAdapter(val onLongClick:(TaskModel)-> Unit, val onClick:(TaskModel) -> Unit) : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
     private val listNotes = arrayListOf<TaskModel>()
-    var onLongClick: ((TaskModel) -> Unit)? = null
 
     fun addNotes(list: List<TaskModel>) {
         listNotes.clear()
@@ -33,25 +34,46 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
         holder.bind(listNotes[position])
-
-        // Долгое нажатие для удаления
-        holder.itemView.setOnLongClickListener {
-            onLongClick?.invoke(listNotes[position])
-            true
-        }
     }
 
     override fun getItemCount(): Int = listNotes.size
 
-    class NotesViewHolder(private val binding: ItemTaskBinding) :
+    inner class NotesViewHolder(private val binding: ItemTaskBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(taskModel: TaskModel) = with(binding) {
             tvTitle.text = taskModel.title
             tvDesc.text = taskModel.desc
-
-            // форматирование времени
+            itemView.setOnLongClickListener {
+                onLongClick(taskModel)
+                false
+            }
+            // время
             val sdf = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
             tvDate.text = sdf.format(Date(taskModel.createdAt))
+
+            // карточки цвет
+            cardView.setCardBackgroundColor(
+                android.graphics.Color.parseColor(taskModel.color)
+            )
+
+            // фото
+            if (taskModel.imageUri != null) {
+                ivPhoto.visibility = View.VISIBLE
+                Glide.with(ivPhoto.context)
+                    .load(taskModel.imageUri)
+                    .into(ivPhoto)
+            } else {
+                ivPhoto.visibility = View.GONE
+            }
+
+            // клик события
+            itemView.setOnLongClickListener {
+                onLongClick(taskModel)
+                false
+            }
+            itemView.setOnClickListener {
+                onClick(taskModel)
+            }
         }
     }
 }

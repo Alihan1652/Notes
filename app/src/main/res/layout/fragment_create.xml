@@ -7,9 +7,38 @@
     android:background="@color/black"
     android:padding="16dp">
 
+    <View
+        android:id="@+id/colorPreview"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"/>
+
+    <Button
+        android:id="@+id/btnChooseColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбрать цвет"/>
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сегодня"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:layout_marginTop="-77dp"
+        android:layout_marginLeft="230dp"
+        android:id="@+id/btnPickDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбрать дату"/>
+
     <Button
         android:layout_marginTop="30dp"
-        android:id="@+id/btn_save"
+        android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SAVE"
@@ -42,8 +71,7 @@
     <EditText
         android:id="@+id/tvDesc"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:hint="Text"
         android:textSize="16sp"
         android:textColor="@android:color/white"
@@ -53,4 +81,19 @@
         android:background="@android:color/transparent"
         android:paddingTop="8dp"/>
 
+    <!-- Превью фото -->
+    <ImageView
+        android:id="@+id/ivPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnAddPhoto"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Добавить фото"/>
 </LinearLayout>
