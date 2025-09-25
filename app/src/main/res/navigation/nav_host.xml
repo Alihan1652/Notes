@@ -5,37 +5,34 @@
     android:id="@+id/nav_host"
     app:startDestination="@id/onBoardFragment">
 
-    <!-- Главный экран со списком заметок -->
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.notes.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main">
-
-        <!-- переход с главного экрана на AddNoteFragment -->
-        <action
-            android:id="@+id/action_mainFragment_to_addNoteFragment"
-            app:destination="@id/addNoteFragment" />
-    </fragment>
-
-    <!-- OnBoard экран -->
     <fragment
         android:id="@+id/onBoardFragment"
-        android:name="com.example.notes.OnBoardFragment"
-        android:label="fragment_on_board"
-        tools:layout="@layout/fragment_on_board" >
+        android:name="com.example.notes.on_board.OnBoardFragment"
+        android:label="OnBoardFragment"
+        tools:layout="@layout/fragment_on_board" />
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.notes.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_onBoardFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:popUpTo="@id/onBoardFragment"
-            app:popUpToInclusive="true" />
+
+            android:id="@+id/action_mainFragment_to_createFragment"
+            app:destination="@id/createFragment" >
+
+        </action>
     </fragment>
 
-    <!-- Новый фрагмент для добавления заметки -->
     <fragment
-        android:id="@+id/addNoteFragment"
-        android:name="com.example.notes.AddNoteFragment"
-        android:label="fragment_add_note"
-        tools:layout="@layout/fragment_add_note" />
+        android:id="@+id/createFragment"
+        android:name="com.example.notes.create.CreateFragment"
+        android:label="CreateFragment"
+        tools:layout="@layout/fragment_create" >
+        <argument
+            android:name="model"
+            app:nullable="true"
+            app:argType="com.example.notes.data.local.models.TaskModel" />
+    </fragment>
+
 </navigation>

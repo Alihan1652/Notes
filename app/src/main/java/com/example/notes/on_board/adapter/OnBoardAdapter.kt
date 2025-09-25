@@ -1,12 +1,12 @@
-package com.example.notes
+package com.example.notes.on_board.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notes.databinding.ItemOnBoardBinding
 import com.bumptech.glide.Glide
-
+import com.example.notes.data.local.models.OnBoardModel
+import com.example.notes.databinding.ItemOnBoardBinding
 
 class OnBoardAdapter(
     private val onBoardList: List<OnBoardModel>,

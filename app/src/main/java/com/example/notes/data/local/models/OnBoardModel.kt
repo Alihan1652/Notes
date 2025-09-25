@@ -1,4 +1,4 @@
-package com.example.notes
+package com.example.notes.data.local.models
 
 data class OnBoardModel(
     val gifRes: Int, // drawable с gif
