@@ -5,6 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.parcelize") // @Parcelize для удобной сериализации объектов
     id("kotlin-kapt")  // Kotlin Annotation Processing Tool (для Room, Dagger и др.)
     id("com.google.devtools.ksp")  // KSP (Kotlin Symbol Processing) — более быстрая альтернатива kapt
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -52,7 +53,11 @@ dependencies {
 
     // Навигация
     implementation(libs.androidx.navigation.fragment.ktx) // Навигация во фрагментах
-    implementation(libs.androidx.navigation.ui.ktx) // Навигация в UI (ActionBar, BottomNav и т.д.)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid) // Навигация в UI (ActionBar, BottomNav и т.д.)
 
     // Тесты
     testImplementation(libs.junit) // Unit-тесты
@@ -107,4 +112,9 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$roomVersion") // Room runtime
     ksp("androidx.room:room-compiler:$roomVersion") // Компилятор Room (через KSP)
+
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
 }

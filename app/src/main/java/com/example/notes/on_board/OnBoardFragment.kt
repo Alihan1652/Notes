@@ -47,7 +47,7 @@ class OnBoardFragment : Fragment() {
         pref.getUserSeen()
 
         findNavController().navigate(
-            R.id.mainFragment,
+            R.id.action_onBoardFragment_to_authFragment,
             null,
             NavOptions.Builder()
                 .setPopUpTo(R.id.onBoardFragment, true)

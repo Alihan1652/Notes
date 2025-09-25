@@ -7,18 +7,15 @@
     android:background="@color/black"
     android:padding="16dp">
 
-    <View
-        android:id="@+id/colorPreview"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:background="#FFFFFF"/>
-
-    <Button
+    <ImageButton
+        android:layout_gravity="end"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="-8dp"
+        android:backgroundTint="@color/black"
+        android:src="@drawable/settings"
         android:id="@+id/btnChooseColor"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Выбрать цвет"/>
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tvDate"
@@ -26,41 +23,28 @@
         android:layout_height="wrap_content"
         android:text="Сегодня"
         android:textSize="16sp"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="-10dp"/>
 
-    <Button
-        android:layout_marginTop="-77dp"
-        android:layout_marginLeft="230dp"
-        android:id="@+id/btnPickDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Выбрать дату"/>
 
-    <Button
+    <ImageButton
+        android:backgroundTint="@color/black"
+        android:src="@drawable/strelka"
         android:layout_marginTop="30dp"
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SAVE"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="start"/>
 
-    <ImageView
-        android:id="@+id/ivSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/settings"
-        android:layout_gravity="end"
-        android:layout_marginTop="-30dp"
-        android:layout_marginBottom="8dp"/>
 
     <EditText
         android:id="@+id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Title"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textColor="@android:color/white"
         android:textColorHint="#888888"
         android:inputType="textCapSentences"
@@ -73,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Text"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textColor="@android:color/white"
         android:textColorHint="#888888"
         android:gravity="top"
@@ -91,6 +75,8 @@
         android:visibility="gone"/>
 
     <Button
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
         android:id="@+id/btnAddPhoto"
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"

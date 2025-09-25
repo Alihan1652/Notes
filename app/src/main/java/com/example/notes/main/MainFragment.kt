@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.notes.App
+import com.bumptech.glide.Glide
 import com.example.notes.R
 import com.example.notes.data.local.models.TaskModel
 import com.example.notes.databinding.FragmentMainBinding
 import com.example.notes.main.adapter.NotesAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.auth.FirebaseAuth
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
@@ -31,6 +33,7 @@ class MainFragment : Fragment() {
         initView()
         getData()
         setupListener()
+        setupUserProfile()
     }
 
     private fun initView() {
@@ -71,6 +74,21 @@ class MainFragment : Fragment() {
         }
         binding.btnResetFilter.setOnClickListener {
             getData()
+        }
+        binding.btnLogout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            requireActivity().finishAffinity()
+        }
+    }
+
+    private fun setupUserProfile() {
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null && user.photoUrl != null) {
+            Glide.with(this)
+                .load(user.photoUrl)
+                .placeholder(R.drawable.ic_placeholder)
+                .circleCrop()
+                .into(binding.ivProfile)
         }
     }
 

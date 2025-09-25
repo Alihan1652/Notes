@@ -18,6 +18,16 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="40dp">
 
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_placeholder"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_bg"
+                android:layout_marginEnd="8dp" />
+
+
             <ImageButton
                 android:id="@+id/btnFilterDate"
                 android:layout_width="wrap_content"
@@ -30,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="80dp"
                 android:layout_weight="1"
                 android:text="Все заметки"
                 android:textColor="@android:color/white"
@@ -38,11 +48,20 @@
                 android:textStyle="bold" />
 
             <ImageButton
+                android:backgroundTint="@color/black"
                 android:id="@+id/btnResetFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/shape"
-                android:layout_marginLeft="100dp"/>
+                android:layout_marginLeft="50dp"/>
+
+            <ImageButton
+                android:id="@+id/btnLogout"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_exit"
+                android:background="@android:color/black"
+                android:contentDescription="Logout" />
         </androidx.appcompat.widget.Toolbar>
 
         <EditText

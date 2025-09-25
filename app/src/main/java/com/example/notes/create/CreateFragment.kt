@@ -69,9 +69,6 @@ class CreateFragment : Fragment() {
             showColorDialog()
         }
 
-        binding.btnPickDate.setOnClickListener {
-            showDateTimePicker()
-        }
 
         binding.btnAddPhoto.setOnClickListener {
             pickImageLauncher.launch("image/*")
@@ -81,10 +78,9 @@ class CreateFragment : Fragment() {
     private fun showColorDialog() {
         val colors = arrayOf( "black","red", "green", "blue",)
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Выберите цвет")
+            .setTitle("Поменять цвет")
             .setItems(colors) { _, which ->
                 selectedColor = colors[which]
-                binding.colorPreview.setBackgroundColor(android.graphics.Color.parseColor(selectedColor))
             }
             .show()
     }

@@ -9,7 +9,13 @@
         android:id="@+id/onBoardFragment"
         android:name="com.example.notes.on_board.OnBoardFragment"
         android:label="OnBoardFragment"
-        tools:layout="@layout/fragment_on_board" />
+        tools:layout="@layout/fragment_on_board" >
+        <action
+            app:popUpTo="@id/authFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_onBoardFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/mainFragment"
@@ -17,10 +23,9 @@
         android:label="MainFragment"
         tools:layout="@layout/fragment_main" >
         <action
-
             android:id="@+id/action_mainFragment_to_createFragment"
-            app:destination="@id/createFragment" >
-
+            app:destination="@id/createFragment"
+            app:popUpToInclusive="true">
         </action>
     </fragment>
 
@@ -33,6 +38,17 @@
             android:name="model"
             app:nullable="true"
             app:argType="com.example.notes.data.local.models.TaskModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.notes.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" >
+        <action
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_authFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
 </navigation>
